@@ -1,6 +1,6 @@
 package com.abdddev.restaurantvoting.config;
 
-import com.abdddev.restaurantvoting.controller.AuthUser;
+import com.abdddev.restaurantvoting.web.AuthUser;
 import com.abdddev.restaurantvoting.model.Role;
 import com.abdddev.restaurantvoting.model.User;
 import com.abdddev.restaurantvoting.repository.UserRepository;

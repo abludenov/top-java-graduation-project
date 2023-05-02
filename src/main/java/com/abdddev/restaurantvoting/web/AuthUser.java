@@ -1,4 +1,4 @@
-package com.abdddev.restaurantvoting.controller;
+package com.abdddev.restaurantvoting.web;
 
 import com.abdddev.restaurantvoting.model.User;
 import lombok.Getter;

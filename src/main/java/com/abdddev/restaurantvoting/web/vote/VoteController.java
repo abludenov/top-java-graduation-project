@@ -1,29 +1,20 @@
-package com.abdddev.restaurantvoting.controller;
+package com.abdddev.restaurantvoting.web.vote;
 
-import com.abdddev.restaurantvoting.model.Restaurant;
-import com.abdddev.restaurantvoting.model.Vote;
 import com.abdddev.restaurantvoting.repository.RestaurantRepository;
 import com.abdddev.restaurantvoting.repository.VoteRepository;
 import com.abdddev.restaurantvoting.service.VoteService;
 import com.abdddev.restaurantvoting.to.RestaurantTo;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
 
-import static com.abdddev.restaurantvoting.controller.VoteController.REST_URL;
+import static com.abdddev.restaurantvoting.web.vote.VoteController.REST_URL;
 import static com.abdddev.restaurantvoting.util.RestaurantUtil.convertToTo;
 
 @Tag(
