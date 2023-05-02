@@ -23,12 +23,12 @@ public class Dish extends NamedEntity {
     @JoinColumn(name = "restaurant_id", nullable = false)
     private Restaurant restaurant;
 
-    public Dish(Integer id, String name, LocalDate date, Double price) {
+    public Dish(Integer id, String name, LocalDate date) {
         super(id, name);
         this.date = date;
     }
 
-    public Dish(Integer id, String name, LocalDate date, double price, Restaurant restaurant) {
+    public Dish(Integer id, String name, LocalDate date, Restaurant restaurant) {
         super(id, name);
         this.date = date;
         this.restaurant = restaurant;

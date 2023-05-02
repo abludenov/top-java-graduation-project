@@ -24,7 +24,7 @@ public class Restaurant extends NamedEntity {
     @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Dish> dishes;
 
-    public Restaurant(Integer id, String name, String description, List<Dish> dishes) {
+    public Restaurant(Integer id, String name, List<Dish> dishes) {
         super(id, name);
         this.dishes = dishes;
     }

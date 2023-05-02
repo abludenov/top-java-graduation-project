@@ -19,3 +19,5 @@ spring:
 logging:
   level:
     root: INFO
+
+springdoc.swagger-ui.path: /
