@@ -1,1 +1,21 @@
+spring:
+  jpa:
+    show-sql: true
+    open-in-view: false
+    defer-datasource-initialization: true
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 20
+        jdbc.batch_size: 20
+        spring.jpa.defer-datasource-initialization: true
+  datasource:
+    url: jdbc:h2:mem:voting
+    username: sa
+    password:
 
+logging:
+  level:
+    root: INFO
