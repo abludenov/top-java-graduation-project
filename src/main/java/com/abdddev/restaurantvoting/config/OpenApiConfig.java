@@ -20,7 +20,14 @@ import org.springframework.context.annotation.Configuration;
         info = @Info(
                 title = "REST API documentation",
                 version = "1.0",
-                description = "restaurant voting application",
+                description = """
+                        Приложение по <a href='https://javaops.ru/view/topjava'>курсу TopJava</a>: решение выпускного проекта
+                        <p><b>Данные для доступа:</b><br>
+                        - admin@gmail.com / admin<br>
+                        - user1@gmail.ru / user1<br>
+                        - user2@gmail.ru / user2<br>
+                        - guest@gmail.com / guest</p>
+                        """,
                 contact = @Contact(name = "Alexander Bludenov", email = "abludenov@gmail.com")
         ),
         security = @SecurityRequirement(name = "basicAuth")
@@ -31,7 +38,7 @@ public class OpenApiConfig {
     public GroupedOpenApi api() {
         return GroupedOpenApi.builder()
                 .group("REST API")
-                .pathsToMatch("/api/**")
+                .pathsToMatch("/**")
                 .build();
     }
 }

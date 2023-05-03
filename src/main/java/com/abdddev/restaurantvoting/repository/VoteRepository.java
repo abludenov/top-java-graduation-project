@@ -1,14 +1,24 @@
 package com.abdddev.restaurantvoting.repository;
 
+import com.abdddev.restaurantvoting.error.IllegalRequestDataException;
 import com.abdddev.restaurantvoting.model.Vote;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-@Transactional
+@Transactional(readOnly = true)
 public interface VoteRepository extends BaseRepository<Vote> {
-    Optional<Vote> getVoteByIdAndUserId(int id, int userId);
+    @Query("SELECT v FROM Vote v WHERE v.userId=:userId and v.id=:id ")
+    Optional<Vote> get(int id, int userId);
+
+    @Query("SELECT v FROM Vote v WHERE v.date = :date")
     List<Vote> findAllByDate(LocalDate date);
+
+    default Vote checkBelong(int id, int userId) {
+        return get(id, userId).orElseThrow(
+                () -> new IllegalRequestDataException("Vote id=" + id + " doesn't belong to User id=" + userId));
+    }
 }

@@ -1,5 +1,6 @@
 package com.abdddev.restaurantvoting.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
@@ -10,24 +11,26 @@ import lombok.Setter;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "dish")
+@Table(name = "dish", uniqueConstraints = {
+        @UniqueConstraint(name = "dish_unique_idx", columnNames = {"name", "dish_date", "restaurant_id"})
+})
 @Getter
 @Setter
 @NoArgsConstructor
 public class Dish extends NamedEntity {
-
     @Column(name = "dish_date", nullable = false)
     @NotNull
     private LocalDate date;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "restaurant_id", nullable = false)
-    private Restaurant restaurant;
 
     @Column(name = "price", nullable = false)
     @NotNull
     @Min(value = 1)
     private double price;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "restaurant_id", nullable = false)
+    @JsonIgnore
+    private Restaurant restaurant;
 
     public Dish(Integer id, String name, LocalDate date, Double price) {
         super(id, name);
@@ -35,10 +38,10 @@ public class Dish extends NamedEntity {
         this.price = price;
     }
 
-    public Dish(Integer id, String name, LocalDate date, Restaurant restaurant, Double price) {
+    public Dish(Integer id, String name, LocalDate date, double price, Restaurant restaurant) {
         super(id, name);
         this.date = date;
-        this.restaurant = restaurant;
         this.price = price;
+        this.restaurant = restaurant;
     }
 }

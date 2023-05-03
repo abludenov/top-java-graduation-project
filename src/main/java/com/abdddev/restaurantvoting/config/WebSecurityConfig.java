@@ -53,9 +53,9 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests()
-                .requestMatchers("/api/admin/**").hasRole(Role.ADMIN.name())
-                .requestMatchers(HttpMethod.POST, "/api/profile").anonymous()
-                .requestMatchers("/api/**").authenticated()
+                .requestMatchers("/admin/**").hasRole(Role.ADMIN.name())
+                .requestMatchers(HttpMethod.POST, "/profile").anonymous()
+                .requestMatchers("/**").authenticated()
                 .and().httpBasic()
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and().csrf().disable();

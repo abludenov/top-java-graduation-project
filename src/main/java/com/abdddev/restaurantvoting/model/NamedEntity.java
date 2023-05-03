@@ -15,7 +15,7 @@ import lombok.Setter;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public abstract class NamedEntity extends BaseEntity {
     @NotBlank
-    @Size(min = 1, max = 128)
+    @Size(min = 2, max = 128)
     @Column(name = "name", nullable = false)
     protected String name;
 

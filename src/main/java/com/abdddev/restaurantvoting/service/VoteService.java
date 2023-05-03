@@ -1,6 +1,6 @@
 package com.abdddev.restaurantvoting.service;
 
-import com.abdddev.restaurantvoting.exception.DataIncorrectException;
+import com.abdddev.restaurantvoting.error.DataConflictException;
 import com.abdddev.restaurantvoting.model.Vote;
 import com.abdddev.restaurantvoting.repository.VoteRepository;
 import lombok.AllArgsConstructor;
@@ -16,6 +16,6 @@ public class VoteService {
 
     public void update(Vote vote) {
         if(LocalTime.now().isAfter(votingStopTime))
-            throw new DataIncorrectException("You can't update your vote after 11:00");
+            throw new DataConflictException("You can't update your vote after 11:00");
     }
 }
