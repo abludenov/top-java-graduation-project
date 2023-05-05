@@ -19,7 +19,7 @@ import static com.abdddev.restaurantvoting.util.validation.ValidationUtil.assure
 import static com.abdddev.restaurantvoting.util.validation.ValidationUtil.checkNew;
 
 
-@Tag(name = "Admin User Controller", description = "User management for administrators")
+@Tag(name = "Admin User", description = "The User management API")
 @RestController
 @RequestMapping(value = AdminUserController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class AdminUserController extends AbstractUserController {

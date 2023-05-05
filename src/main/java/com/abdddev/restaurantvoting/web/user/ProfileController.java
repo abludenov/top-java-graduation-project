@@ -21,7 +21,7 @@ import static com.abdddev.restaurantvoting.util.validation.ValidationUtil.assure
 import static com.abdddev.restaurantvoting.util.validation.ValidationUtil.checkNew;
 
 
-@Tag(name = "User Profile Controller", description = "User profile management")
+@Tag(name = "User Profile", description = "The User profile API")
 @RestController
 @RequestMapping(value = ProfileController.REST_URL, produces = MediaType.APPLICATION_JSON_VALUE)
 public class ProfileController extends AbstractUserController {
